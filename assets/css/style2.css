@@ -1,0 +1,8 @@
+.main-header .logo {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.main-header .logo img {
+    width: 120px;
+}
