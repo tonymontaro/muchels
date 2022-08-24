@@ -43,13 +43,16 @@ var templateParams = {
     emailjs.send('service_xgc1i9s', 'template_wzm53c6', templateParams)
     .then(function(response) {
        console.log('SUCCESS!', response.status, response.text);
+      
+      alert("Email Sent, thanks!");
     }, function(error) {
+        alert("Something went wrong, please contact us directly at muchelshotels@gmail.com");
        console.log('FAILED...', error);
     });
+    document.querySelector('form').reset();
   } else {
       console.log("not filled completely.");
   }
-  
 });
 
 
