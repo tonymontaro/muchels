@@ -31,6 +31,7 @@
 	color:$theme-color;
 	
 */
+
 @import url("https://fonts.googleapis.com/css?family=Lato:300,400,700,900|Noto+Serif:400,400i,700&display=swap");
 .boxed-btn {
   background: #fff;
@@ -2450,7 +2451,7 @@ label {
       content: "";
       top: 0;
       bottom: 0;
-      background-image: url(../img/dining/dining-img.png);
+      background-image: url(../img/food.jpeg);
       width: 50%;
       border-radius: 0 5px 0 0;
       background-size: cover;
@@ -3946,6 +3947,7 @@ h3 {
       display: block; }
 
 .contact-section {
+    background-color: #f2f2f2;
   padding: 130px 0 100px; }
   @media (max-width: 991px) {
     .contact-section {
