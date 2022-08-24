@@ -9,6 +9,51 @@ $(document).ready(function(){
     }, "type the correct answer -_-");
 
     // validate contactForm form
+        console.log("we are ready1");
+        
+        emailjs.init("LDggvTFCPJuh37e2t");
+        
+var templateParams = {
+    from_name: 'James Web',
+    message: 'Check this out!',
+    title: "My little Queen"
+};
+ 
+//emailjs.send('service_xgc1i9s', 'template_wzm53c6', templateParams)
+//    .then(function(response) {
+//       console.log('SUCCESS!', response.status, response.text);
+//    }, function(error) {
+//       console.log('FAILED...', error);
+//    });
+        
+
+ document.querySelector('form').addEventListener('submit', (e) => {
+     console.log("weait");
+    e.preventDefault();
+  const data = Object.fromEntries(new FormData(e.target).entries());
+  if (data.message && data.name && data.email && data.subject) {
+      console.log(data)
+      
+    var templateParams = {
+        from_name: data.name,
+        message: data.message,
+        title: data.subject,
+        email: data.email,
+    };
+    emailjs.send('service_xgc1i9s', 'template_wzm53c6', templateParams)
+    .then(function(response) {
+       console.log('SUCCESS!', response.status, response.text);
+    }, function(error) {
+       console.log('FAILED...', error);
+    });
+  } else {
+      console.log("not filled completely.");
+  }
+  
+});
+
+
+    // validate contactForm form
     $(function() {
         $('#contactForm').validate({
             rules: {
@@ -54,32 +99,33 @@ $(document).ready(function(){
                     minlength: "thats all? really?"
                 }
             },
-            submitHandler: function(form) {
-                $(form).ajaxSubmit({
-                    type:"POST",
-                    data: $(form).serialize(),
-                    url:"contact_process.php",
-                    success: function() {
-                        $('#contactForm :input').attr('disabled', 'disabled');
-                        $('#contactForm').fadeTo( "slow", 1, function() {
-                            $(this).find(':input').attr('disabled', 'disabled');
-                            $(this).find('label').css('cursor','default');
-                            $('#success').fadeIn()
-                            $('.modal').modal('hide');
-		                	$('#success').modal('show');
-                        })
-                    },
-                    error: function() {
-                        $('#contactForm').fadeTo( "slow", 1, function() {
-                            $('#error').fadeIn()
-                            $('.modal').modal('hide');
-		                	$('#error').modal('show');
-                        })
-                    }
-                })
-            }
+//            submitHandler: function(form) {
+//                $(form).ajaxSubmit({
+//                    type:"POST",
+//                    data: $(form).serialize(),
+//                    url:"contact_process.php",
+//                    success: function() {
+//                        $('#contactForm :input').attr('disabled', 'disabled');
+//                        $('#contactForm').fadeTo( "slow", 1, function() {
+//                            $(this).find(':input').attr('disabled', 'disabled');
+//                            $(this).find('label').css('cursor','default');
+//                            $('#success').fadeIn()
+//                            $('.modal').modal('hide');
+//		                	$('#success').modal('show');
+//                        })
+//                    },
+//                    error: function() {
+//                        $('#contactForm').fadeTo( "slow", 1, function() {
+//                            $('#error').fadeIn()
+//                            $('.modal').modal('hide');
+//		                	$('#error').modal('show');
+//                        })
+//                    }
+//                })
+//            }
         })
     })
+        
         
  })(jQuery)
 })
