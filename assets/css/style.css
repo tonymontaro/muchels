@@ -65,6 +65,12 @@
 /*--
     - Overlay
 ------------------------------------------*/
+
+#about, .dining-area {
+    max-width: 1600px;
+    margin: auto;
+}
+
 [data-overlay] {
   position: relative;
   background-size: cover;
